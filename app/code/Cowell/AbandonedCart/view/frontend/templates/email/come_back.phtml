@@ -1,0 +1,147 @@
+<?php
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+$arrProduct = $block->getProducts();
+$i = 1;
+/** @var $block \Magento\ProductAlert\Block\Email\Stock */
+?>
+<?php if ($arrProduct): ?>
+    <table cellpadding="5" cellspacing="5" style="text-align: left;">
+        <?php foreach ($arrProduct as $_product): ?>
+            <?php if (isset($_product['children_item']) && $_product['product_type'] == 'bundle'): ?>
+                <?php $itemObjectParent = $block->getProductObject($_product['product_id'], $_product['store_id']); ?>
+                <tr>
+                    <td class="col photo" style="width: 100px">
+                        <a href="<?= /* @escapeNotVerified */
+                        ($itemObjectParent->getVisibility() != 1) ? $itemObjectParent->getProductUrl() : "#" ?>"
+                           title="<?= $block->escapeHtml($itemObjectParent->getName()) ?>"
+                           class="product photo">
+                            <?= $block->getImage($itemObjectParent, 'product_thumbnail_image', [])->toHtml() ?>
+                        </a>
+                    </td>
+                    <td class="col item">
+                        <p>
+                            <strong class="product name">
+                                <a href="<?= /* @escapeNotVerified */
+                                $itemObjectParent->getProductUrl() ?>"><?= $block->escapeHtml($itemObjectParent->getName()) ?></a>
+                            </strong>
+                        </p>
+                        <?php foreach ($_product['children_item'] as $valueChildren): ?>
+                            <?php $itemObjectChirden = $block->getProductObject($valueChildren['product_id'], $valueChildren['store_id']); ?>
+                            <p><?= $block->formatQty($valueChildren['qty']) . 'x' ?>
+                                <strong>
+                                    <?= $block->escapeHtml($itemObjectChirden->getName()) ?>
+                                </strong>
+                                <?= '(' . $block->escapeHtml($itemObjectChirden->getSku()) . ')' ?>
+                                <?= $block->getProductPriceHtml(
+                                    $itemObjectChirden,
+                                    \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+                                    \Magento\Framework\Pricing\Render::ZONE_EMAIL,
+                                    [
+                                        'display_label' => __('Price:')
+                                    ]
+                                ); ?>
+                            </p>
+                            <br/>
+                        <?php endforeach; ?>
+                    </td>
+
+                </tr>
+            <?php elseif (isset($_product['children_item']) && $_product['product_type'] == 'configurable'): ?>
+                <?php foreach ($_product['children_item'] as $valueChildren): ?>
+                    <?php $itemObjectParent = $block->getProductObject($_product['product_id'], $_product['store_id']); ?>
+                    <?php $itemObjectChirden = $block->getProductObject($valueChildren['product_id'], $valueChildren['store_id']); ?>
+                    <tr>
+                        <td class="col photo">
+                            <a href="<?= /* @escapeNotVerified */
+                            $itemObjectParent->getProductUrl() ?>"
+                               title="<?= $block->escapeHtml($itemObjectChirden->getName()) ?>"
+                               class="product photo">
+                                <?= $block->getImage($itemObjectChirden, 'product_thumbnail_image', [])->toHtml() ?>
+                            </a>
+                        </td>
+                        <td class="col item">
+                            <p>
+                                <strong class="product name">
+                                    <a href="<?= /* @escapeNotVerified */
+                                    $itemObjectParent->getProductUrl() ?>"><?= $block->escapeHtml($itemObjectChirden->getName()) ?></a>
+                                </strong>
+                            </p>
+                            <p><?= __('SKU') ?> : <?= $block->escapeHtml($itemObjectChirden->getSku()) ?></p>
+                            <p><?= __('Qty') ?> : <?= $block->formatQty($valueChildren['qty']) ?></p>
+                            <p><?= $block->getProductPriceHtml(
+                                    $itemObjectChirden,
+                                    \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+                                    \Magento\Framework\Pricing\Render::ZONE_EMAIL,
+                                    [
+                                        'display_label' => __('Price:')
+                                    ]
+                                ); ?></p>
+                        </td>
+                        <br/>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <?php $dataObjectChirden = $block->getProductObject($_product['product_id'], $_product['store_id']) ?>
+                    <?php if ($_product['product_id_parent']): ?>
+                    <?php $dataObjectParent = $block->getProductObject($_product['product_id_parent'], $_product['store_id']) ?>
+                    <td class="col photo">
+                        <a href="<?= /* @escapeNotVerified */
+                        $dataObjectParent->getProductUrl() ?>"
+                           title="<?= $block->escapeHtml($dataObjectChirden->getName()) ?>"
+                           class="product photo">
+                            <?= $block->getImage($dataObjectChirden, 'product_thumbnail_image', [])->toHtml() ?>
+                        </a>
+                    </td>
+                    <td class="col item">
+                        <p>
+                            <strong class="product name">
+                                <a href="<?= /* @escapeNotVerified */
+                                $dataObjectParent->getProductUrl() ?>"><?= $block->escapeHtml($dataObjectChirden->getName()) ?></a>
+                            </strong>
+                        </p>
+                        <?php else: ?>
+                    <td class="col photo">
+                        <a href="<?= /* @escapeNotVerified */
+                        ($dataObjectChirden->getVisibility() != 1) ? $dataObjectChirden->getProductUrl() : "#" ?>"
+                           abc="<?= $dataObjectChirden->getVisibility() ?>"
+                           title="<?= $block->escapeHtml($dataObjectChirden->getName()) ?>"
+                           class="product photo">
+                            <?= $block->getImage($dataObjectChirden, 'product_thumbnail_image', [])->toHtml() ?>
+                        </a>
+                    </td>
+                    <td class="col item">
+                        <p>
+                            <strong class="product name">
+                                <?php if ($dataObjectChirden->getVisibility() != 1): ?>
+                                    <a href="<?= /* @escapeNotVerified */
+                                    $dataObjectChirden->getProductUrl() ?>"><?= $block->escapeHtml($dataObjectChirden->getName()) ?></a>
+                                <?php else: ?>
+                                    <?= $block->escapeHtml($dataObjectChirden->getName()) ?>
+                                <?php endif; ?>
+                            </strong>
+                        </p>
+                        <?php endif; ?>
+                        <p><?= __('SKU') ?> : <?= $block->escapeHtml($dataObjectChirden->getSku()) ?></p>
+                        <p><?= __('Qty') ?> : <?= $block->formatQty($_product['qty']) ?></p>
+                        <p><?= $block->getProductPriceHtml(
+                                $dataObjectChirden,
+                                \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+                                \Magento\Framework\Pricing\Render::ZONE_EMAIL,
+                                [
+                                    'display_label' => __('Price:')
+                                ]
+                            ); ?></p>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </table>
+<?php endif; ?>

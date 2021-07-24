@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="Cowell" translate="label" sortOrder="200">
+            <label>CO-WELL Extensions</label>
+        </tab>
+        <section id="quote_alert_section" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Abandoned Cart Email</label>
+            <tab>Cowell</tab>
+            <resource>Cowell_AbandonedCart::Cowell_AbandonedCart</resource>
+            <group id="equote" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cart Emai General Setting</label>
+                <field id="cart_total" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Minimum Cart Value</label>
+                    <validate>required-entry validate-number</validate>
+                </field>
+                <field id="cart_stock" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Minimum Quantity of Items</label>
+                    <validate>required-entry validate-number</validate>
+                </field>
+            </group>
+            <group id="quote_email_notify_come_back" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Abandoned Cart Email</label>
+                <field id="e_quote_come_back" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Abandoned Cart Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="time_come_back" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Time Period for Cart Abandonment</label>
+                    <validate>required-entry validate-number</validate>
+                    <comment>Set abandonment time (hours). After this time period, abandoned cart emails will be sent.</comment>
+                </field>
+                <field id="email_come_back_template" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Abandoned Cart Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="email_identity" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Abandoned Cart Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+            </group>
+            <group id="quote_email_out_stock" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Low Stock Notification Email</label>
+                <field id="e_quote_out_stock" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Low Stock Notification Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="stock_notify" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Number Of Items Left In Stock</label>
+                    <validate>required-entry validate-number</validate>
+                    <comment>Send emails when the number of items in Cart less than or equal to number of items in Stock plus number in this field, low stock notification emails will be sent. </comment>
+                </field>
+                <field id="email_stock_template" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Out-Of-Stock Notification Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="email_identity" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Out-Of-Stock Notification Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+            </group>
+            <group id="quote_alert" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Job Schedule</label>
+                <field id="frequency" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Frequency</label>
+                    <source_model>Magento\Cron\Model\Config\Source\Frequency</source_model>
+                    <backend_model>Cowell\AbandonedCart\Model\Config\Backend\QuoteAlert\Alert</backend_model>
+                </field>
+                <field id="time" translate="label comment" type="time" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start Time</label>
+                    <comment>Time to process</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

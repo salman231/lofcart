@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="cowell_abandoned_cart_email" instance="Cowell\AbandonedCart\Model\Observer" method="process">
+            <config_path>crontab/default/jobs/cowell_abandoned_cart_email/schedule/cron_expr</config_path>
+        </job>
+    </group>
+</config>

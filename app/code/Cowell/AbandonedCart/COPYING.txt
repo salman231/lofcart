@@ -1,0 +1,10 @@
+﻿Copyright © CO-WELL Co., LTD
+Copyright © CO-WELL ASIA Co., LTD
+
+Each Magento source file included in this distribution is licensed under OSL 3.0 or the CO-WELL (CW) license
+
+http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+Please see LICENSE.txt for the full text of the OSL 3.0 license.
+
+Subject to Licensee's payment of fees and compliance with the terms and conditions of the CW License, the CW License supersedes the OSL 3.0 license for each source file.
+Please see LICENSE_CW.txt for the full text of the CW License.

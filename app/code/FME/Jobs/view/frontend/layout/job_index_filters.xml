@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * FME Extensions
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the fmeextensions.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.fmeextensions.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category  FME
+ * @package   FME_Jobs
+ * @copyright Copyright (c) 2019 FME (http://fmeextensions.com/)
+ * @license   https://fmeextensions.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="FME_Jobs::css/theme-responsive.css" />
+		<css src="FME_Jobs::css/style.css" />
+		<css src="FME_Jobs::css/jump_menu.css"/>
+        
+        <!-- <css src="FME_Articles::css/font-awesome.min.css"/>
+        <css src="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,600,700,800" src_type="url" /> -->
+        
+        <!-- <link src="https://cdn.ampproject.org/v0.js" src_type="url" /> -->
+        <!-- <link src="FME_Articles::js/easyResponsiveTabs.js"/> -->
+        <!-- <css  src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            src_type="url"> -->
+            <!-- <link rel="stylesheet" type="text/css" src="http://fonts.googleapis.com/css?family=Montserrat" src_type="url" /> -->
+        
+        
+	</head>
+    
+</page>

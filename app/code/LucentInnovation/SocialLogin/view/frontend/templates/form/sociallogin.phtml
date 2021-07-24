@@ -1,0 +1,439 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$key_form = $objectManager->get('Magento\Framework\Data\Form\FormKey');
+$form_Key = $key_form->getFormKey(); 
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$base_url = $storeManager->getStore()->getBaseUrl();
+$request_url = $base_url."sociallogin/login/request";
+
+$requestInterface = $objectManager->get('Magento\Framework\App\RequestInterface');
+$routeName      = $requestInterface->getRouteName();
+$moduleName     = $requestInterface->getModuleName(); 
+$controllerName = $requestInterface->getControllerName(); 
+$actionName     = $requestInterface->getActionName();
+
+//module status
+$module_enable = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/general/enable');
+
+//general data 
+$general_display_type = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/general/general_display_type');
+$general_logo_size = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/general/general_logo_size');
+if($general_logo_size=='0'){
+  $general_logo_size = '48';
+}
+$general_display_on = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/general/general_display_on');
+$general_floating_position = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/general/general_floating_position');
+$general_display_popup = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/general/general_display_popup');
+$general_display_on_position = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/general/general_display_on_position');
+
+//facebook data
+$facebook_enable = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/facebook/facebook_enable');
+$facebook_app_id = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/facebook/facebook_app_id');
+
+$facebook_button_text = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/facebook/facebook_button_text');
+if($facebook_button_text==''){
+  $facebook_button_text = 'Facebook Login';
+}
+
+$facebook_font_family = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/facebook/facebook_font_family');
+$facebook_font_size = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/facebook/facebook_font_size');
+$facebook_button_bg = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/facebook/facebook_button_bg');
+$facebook_button_text_color = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/facebook/facebook_button_text_color');
+
+
+//google data
+$google_enable = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/google/google_enable');
+$google_client_id = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/google/google_client_id');
+
+$google_button_text = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/google/google_button_text');
+if($google_button_text==''){
+  $google_button_text = 'Google Login';
+}
+
+$google_font_family = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/google/google_font_family');
+$google_font_size = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/google/google_font_size');
+$google_button_bg = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/google/google_button_bg');
+$google_button_text_color = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sociallogin/google/google_button_text_color');
+
+
+
+$page_on_position = explode(",",$general_display_on_position);
+$page_on = explode(",",$general_display_on);
+
+//if module enable
+if($module_enable==1){
+  //if actionname match with page
+  if(in_array($actionName, $page_on)){
+?>
+    <div class="social_login_div">
+      <script>
+        /* global variable for request */
+        window.xhttp = new XMLHttpRequest();
+        window.form_Key = '<?php echo $form_Key;?>';
+      </script>
+
+      <?php
+      //if facebook enable then render script
+      if($facebook_enable==1) { 
+        if(!$facebook_font_family || $facebook_font_family!=''){
+          $facebook_font_family = 'Roboto';
+        }
+      ?>
+        <script type="text/javascript">
+        window.facebook_app_id = "<?php echo $facebook_app_id;?>";
+        window.request_url = "<?php echo $request_url ?>";
+        </script>
+        <script src="<?php echo $this->getViewFileUrl('LucentInnovation_SocialLogin::js/facebook.js'); ?>"  /></script>
+        <link href='https://fonts.googleapis.com/css?family=<?php echo $facebook_font_family; ?>' rel='stylesheet'>
+
+      <?php 
+      }
+      ?>
+
+      <?php 
+      //if google enable then render script
+      if($google_enable==1) {
+        if(!$google_font_family || $google_font_family!=''){
+          $google_font_family = 'Roboto';
+        }
+      ?>
+        <script type="text/javascript">
+        window.request_url = "<?php echo $request_url ?>";
+        window.google_client_id = "<?php echo $google_client_id ?>";
+        </script>
+        <script src="<?php echo $this->getViewFileUrl('LucentInnovation_SocialLogin::js/google.js'); ?>"  /></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <link href='https://fonts.googleapis.com/css?family=<?php echo $google_font_family; ?>' rel='stylesheet'>
+      <?php 
+      }
+      ?>
+
+      <!-- Start of generate social button as per setting -->
+      <ul class="social-button-module">
+          <?php 
+          //facebook enable
+          if($facebook_enable==1) { 
+          ?>
+            <li class="facebook_btn">
+              <a onclick="fb_login();" href="javascript:;" >
+                <?php
+                //if display type logo
+                if($general_display_type==1){
+
+                    //get logo size
+                    $fb_logo_size =  $general_logo_size;    
+                ?>
+                  <img src="<?php echo $this->getViewFileUrl('LucentInnovation_SocialLogin::images/facebook_'.$fb_logo_size.'.png'); ?>" alt="facebook icon" class="facebook_icon"  /> 
+
+                <?php
+                //if display type button
+                }else if($general_display_type==2){
+                ?>
+
+                  <div class="social_btn" style="color:<?php echo $facebook_button_text_color;?>;background:<?php echo $facebook_button_bg;?>;font-size:<?php echo $facebook_font_size;?>;font-family:<?php echo $facebook_font_family;?>;">
+                    <span class="fa fa-facebook"></span>
+                    <?php echo $facebook_button_text; ?>
+                  </div>
+
+                <?php
+                } 
+                ?>
+              </a>
+            </li>
+          <?php 
+          }
+          ?>
+
+
+          <?php 
+          //google enable
+          if($google_enable==1) { 
+          ?>
+            <li class="google_btn">
+              <a class="googleClass" href="javascript:;" >
+                <?php
+                //if display type logo
+                if($general_display_type==1){
+  
+                    //get logo size
+                    $gl_logo_size =  $general_logo_size;    
+
+                ?>
+
+                  <img src="<?php echo $this->getViewFileUrl('LucentInnovation_SocialLogin::images/google_'.$gl_logo_size.'.png');  ?>" alt="google icon" class="google_icon"  /> 
+
+                <?php
+                //if display type button
+                }else if($general_display_type==2){
+                ?>
+
+                  <div class="social_btn" style="color:<?php echo $google_button_text_color;?>;background:<?php echo $google_button_bg;?>;font-size:<?php echo $google_font_size;?>;font-family:<?php echo $google_font_family;?>;">
+                    <span class="fa fa-google-plus"></span>
+                    <?php echo $google_button_text; ?>
+                  </div>
+
+                <?php
+                }
+                ?>
+                 
+              </a>
+            </li>
+
+          <?php 
+          } 
+          ?>
+      </ul>
+      <div class="email-find-error"></div>
+      <!-- End of generate social button as per setting -->
+
+    </div>
+    <?php
+    /*Start display type is Floating*/ 
+    if($general_display_popup==1){
+    ?>
+        <style type="text/css">
+          .social-button-module {
+            float: left;
+            position: fixed;
+
+            <?php
+            //if floating position left
+            if($general_floating_position == 0){ 
+            ?>
+            left: 0;
+            <?php 
+            //if floating position right
+            }else if($general_floating_position == 1){
+            ?>
+            right: 0;
+            <?php 
+            }
+            ?>
+
+            margin-left: 0 !important;
+            margin-right: 0px !important;
+            padding: 0;
+            width: auto;
+        }
+        .social-button-module li{
+          display: list-item;
+         
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .social-button-module li div{
+          width: 200px !important;
+            text-align: center;
+                margin: 0 !important;
+            padding: 0;
+        }
+        </style>
+  <?php 
+    /*Start display type is Popup*/ 
+  }else if($general_display_popup==0){
+  ?>
+
+    <style type="text/css">
+    .popup_btn{float: left; width: 100%; margin: 10px 10px 20px 0; }  
+    .social_login_popup{  padding: 5px 10px; background: #1979c3; color: #fff; font-size:20px;text-decoration: none; border-radius: 3px; text-decoration: none; } 
+    .social_login_div{display: none;}
+    .social_login_popup:hover{color: #fff;text-decoration: none;}
+    </style>
+    <div class="popup_btn">
+    <a href="javascript:;" class="social_login_popup" >Social Login?</a>
+    </div>
+    <script type="text/javascript">
+      require([
+    'jquery',
+    'Magento_Ui/js/modal/alert',
+    'Magento_Ui/js/modal/modal'
+    ], function($, alert) {
+      
+        var options = {
+            type: 'popup',
+            responsive: true,
+            innerScroll: false,
+            title: 'Social Login',
+            buttons: [{
+                text: $.mage.__('Continue'),
+                class: 'popup-view-size',
+                click: function () {
+                    this.closeModal();
+                }
+            }]
+            ,
+            opened: function($Event) {
+                $(".modal-footer").hide();
+            }
+        };
+        $(".social_login_popup").click(function() {
+            $(".social_login_div").modal(options).modal('openModal');
+        });
+    });
+
+    </script>
+    <style type="text/css">
+        .modal-popup .modal-inner-wrap{ width: 25%; }
+        .social-button-module li { 
+          display: inline; list-style: none;
+          /* optional below for center*/
+           float:left;
+           margin-right: 10px;
+        }
+    </style>
+
+
+
+    <?php 
+    /*Start display type is page*/ 
+    } else {
+    ?>
+
+      <style type="text/css">
+        .social-button-module{
+          float: left; width: 96%;
+        }
+        .social-button-module li { 
+          display: inline; list-style: none;
+          /* optional below for center*/
+           float:left;
+           margin-right: 10px;
+        }
+      </style>
+
+    <?php 
+    } 
+    ?>
+
+
+   <style type="text/css">
+    .social-button-module{margin-top: 10px;}
+    .social-button-module a{ text-decoration: none; }
+    .block-customer-login{float: left !important;}
+    .block-new-customer{float: right !important; clear: unset !important;}
+    </style>
+
+
+  <?php 
+  //end validation for action
+  } 
+  ?>
+<?php } ?>
+
+
+
+
+<?php
+$css_login = '';
+$css_login = '';
+$css_login = '';
+//Start of display on page position
+if(in_array($actionName, $page_on)){
+  if($actionName=='login'){
+    if(empty($page_on_position)){
+  
+        $css_login = '.login-social-top{display:block;}.login-social-bottom{display:none;}';  
+    }else if(in_array(1, $page_on_position) && in_array(0, $page_on_position)){
+     
+        if($general_display_popup==0 || $general_display_popup==2 ){
+          $css_login = '.login-social-top{display:block;}.login-social-bottom{display:block;}';  
+        }else{
+          $css_login = '.login-social-top{display:block;}.login-social-bottom{display:none;}';  
+        }
+    }else if(in_array(0, $page_on_position) || in_array(1, $page_on_position) ){
+        if(in_array(0, $page_on_position)){
+      
+        $css_login = '.login-social-top{display:block;}.login-social-bottom{display:none;}';  
+        }else if(in_array(1, $page_on_position)){
+      
+        $css_login = '.login-social-top{display:none;}.login-social-bottom{display:block;}';  
+        }
+    }else{
+        $css_login = '.login-social-top{display:block;}.login-social-bottom{display:none;}';  
+    }
+
+  }else{
+      
+        $css_login = '.login-social-top{display:none;}.login-social-bottom{display:none;}';  
+  }
+
+
+  if($actionName=='create'){
+      if(empty($page_on_position)){
+       
+          $css_create = '.create-social-top{display:block;}.create-social-bottom{display:none;}';  
+      }else if(in_array(2, $page_on_position) && in_array(3, $page_on_position)){
+        
+        if($general_display_popup==0 || $general_display_popup==2 ){
+            $css_create = '.create-social-top{display:block;}.create-social-bottom{display:block;}';  
+          }else{
+            $css_create = '.create-social-top{display:block;}.create-social-bottom{display:none;}';  
+          }
+      }else if(in_array(2, $page_on_position) || in_array(3, $page_on_position) ){
+          if(in_array(2, $page_on_position)){
+        
+          $css_create = '.create-social-top{display:block;}.create-social-bottom{display:none;}';  
+          }else if(in_array(3, $page_on_position)){
+         
+          $css_create = '.create-social-top{display:none;}.create-social-bottom{display:block;}';  
+          }
+      }else{
+          $css_create = '.create-social-top{display:block;}.create-social-bottom{display:none;}';  
+      }
+
+  }else{
+         
+          $css_create = '.create-social-top{display:none;}.create-social-bottom{display:none;}';  
+  }
+
+  if($actionName=='forgotpassword'){
+      if(empty($page_on_position)){
+       
+          $css_forgotpassword = '.forgotpassword-social-top{display:block;}.forgotpassword-social-bottom{display:none;}';  
+      }else if(in_array(4, $page_on_position) && in_array(5, $page_on_position)){
+        
+        if($general_display_popup==0 || $general_display_popup==2 ){
+            $css_forgotpassword = '.forgotpassword-social-top{display:block;}.forgotpassword-social-bottom{display:block;}';  
+          }else{
+            $css_forgotpassword = '.forgotpassword-social-top{display:block;}.forgotpassword-social-bottom{display:none;}';  
+          }
+      }else if(in_array(4, $page_on_position) || in_array(5, $page_on_position) ){
+          if(in_array(4, $page_on_position)){
+        
+          $css_forgotpassword = '.forgotpassword-social-top{display:block;}.forgotpassword-social-bottom{display:none;}';  
+          }else if(in_array(5, $page_on_position)){
+         
+          $css_forgotpassword = '.forgotpassword-social-top{display:none;}.forgotpassword-social-bottom{display:block;}';  
+          }
+      }else{
+          $css_forgotpassword = '.forgotpassword-social-top{display:block;}.forgotpassword-social-bottom{display:none;}';  
+      }
+
+  }else{
+         
+          $css_forgotpassword = '.forgotpassword-social-top{display:none;}.forgotpassword-social-bottom{display:none;}';  
+  }
+}
+//End of display on page position
+?>
+<style type="text/css">
+  <?php  echo $css_login; ?>
+  <?php  echo $css_create; ?>
+  <?php  echo $css_forgotpassword; ?>
+</style>
+
+
+<div class="abc" style="display: none;">
+  <div class="popupContact">
+    <form action="#" id="form" method="post" name="form">
+      <img class="close" src="<?php echo $this->getViewFileUrl('LucentInnovation_SocialLogin::images/close.png'); ?>" onclick ="return email_hide();">
+      <h2>Please Fill Up form</h2>
+      <hr>
+      <input class="email_id" name="email_id" placeholder="Please enter email" type="email" >
+      <input class="customer_name" name="name" type="text" placeholder="Please enter name">
+      <input class="app_id" name="app_id" type="hidden" >
+      <a href="javascript:;" onclick="return submitEmail();" id="submit">Send</a>
+    </form>
+  </div>
+</div>

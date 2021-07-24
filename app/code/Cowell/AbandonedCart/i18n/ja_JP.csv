@@ -1,0 +1,67 @@
+Logs have been deleted.,ログが削除されました。
+The log has been deleted.,このログが削除されました。
+Can't find a record to delete.,削除するレコードが見つかりません。
+Email Logs,Eメールログ
+A total of %1 item(s) were deleted.,合計％1のアイテムが削除されました。
+Email Preview,Eメールプリビュー
+An error occurred. The email template can not be opened for preview.,エラーが発生されました。メールテンプレートがプリビューに開くことができない。
+Email sent successfully,メールが成功に送信されました。
+An error occured when sending this mail.,メール送信時にエラーが発生されました。
+Invalid block type: %1,無効なブロックタイプ: %1
+The cron expression can not be saved.,cron表現が保存されません。
+Sent,送信済み
+Error,エラー
+Low Stock,低在庫
+Abandoned Cart,放棄されたカート
+Preview Email,メールプリビュー
+Resend,再送信
+Delete,削除
+Delete item,アイテム削除
+Are you sure you want to delete this record?,このレコードを削除しますか?
+Price:,価格：
+SKU,SKU
+Qty,数量
+Abandoned Cart Email,放棄されたカートEメール
+"Hello %firstname,",おはようございます%firstname
+Your shopping cart at %store_name is waiting a while for your return!,%store_nameでのあなたの買物カートがあなたの帰りにお待ち中
+Would you like to complete your purchase?,商品購入を完了してもよろしいでしょうか。
+Shopping Cart Details,買物カート詳細
+Click this link <a href='%checkout_cart_url'>HERE</a> to complete your purchase!,購入を完了するには、<a href='%checkout_cart_url'>HERE</a>のリンクをクリックしてください！
+"Thanks for shopping with us,",お買物をしていただき、ありがとうございます
+Product Low Stock Notification Email,商品の在庫数が少ないとお知らせるメール
+Seems like you left these following items to your cart at %quote_time on our store.,私たちの店の%quote_timeにあなたのカートに次のアイテムを残したようです。
+Please come back to have a look before they are sold out.,売り切れになる前に見に行ってください。
+"Please click <a href=""%checkout_cart_url"">HERE</a>  to get them now!","<a href=""%checkout_cart_url"">HERE</a> をクリックしてください"
+Delete items, アイテムを削除する
+Are you sure you wan't to delete selected items?,選択したアイテムを削除しますか?
+Abandoned Cart Email Logs,放棄されたカートEメールログ
+CO-WELL Extensions,CO-WELL　拡張機能
+Cart Emai General Setting,カートEメールの共通設定
+Minimum Cart Value,最小カート値
+Minimum Quantity of Items,最小アイテム数量
+Enable Abandoned Cart Email,廃棄されたカートメールが有効化する
+Time Period for Cart Abandonment,カート廃棄の期間
+"Set abandonment time (hours). After this time period, abandoned cart emails will be sent.", 廃棄時間を設定する。この時間の後で、廃棄されたカートメールが送信していただく
+Abandoned Cart Email Template,廃棄されたカートのメールテンプレート
+Abandoned Cart Email Sender,廃棄されたカートのメール送信者
+Low Stock Notification Email,低在庫お知らせのメール
+Enable Low Stock Notification Email,低在庫お知らせメールが有効化する
+Number Of Items Left In Stock,在庫のアイテムの数
+"Send emails when the number of items in Cart less than or equal to number of items in Stock plus number in this field, low stock notification emails will be sent.",カート内でのアイテム数は庫にあるアイテム数とこのフィールドの数量の合計の以下となる時に、メールが送信されて、低在庫のお知らせメールが送信される。
+Out-Of-Stock Notification Email Template,在庫切れお知らせメールテンプレート
+Out-Of-Stock Notification Email Sender,在庫切れお知らせメール送信者
+Job Schedule,作業スケジュール
+Frequency,頻度
+Start Time,開始時間
+Time to process,処理時間
+Low stock notification Email Template,低在庫お知らせのメールテンプレート
+Resending Email Template,送信しているメールテンプレート
+Delete All Logs,全てのログを削除する
+Delete Action,アクションを削除する
+Are you sure you want to delete these selected items?,選択したアイテムを削除しますか?
+ID,ID
+Email Subject,Eメールの課題
+Recipient Email,メールの受信者
+Type,種別
+Sent Date,送信した日付
+Status,ステータス

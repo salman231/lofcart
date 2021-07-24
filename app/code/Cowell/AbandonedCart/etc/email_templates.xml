@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="quote_alert_section_quote_email_notify_come_back_email_come_back_template" label="Abandoned Cart Email Template" file="come_back_mail.html" type="html" module="Cowell_AbandonedCart" area="frontend"/>
+    <template id="quote_alert_section_quote_email_out_stock_email_stock_template" label="Low stock notification Email Template" file="quote_out_of_stock.html" type="html" module="Cowell_AbandonedCart" area="frontend"/>
+    <template id="quote_alert_send_again" label="Resending Email Template" file="send_again.html" type="html" module="Cowell_AbandonedCart" area="frontend"/>
+</config>

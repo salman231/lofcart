@@ -1,0 +1,48 @@
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<!--@subject {{trans "Abandoned Cart Email"}} @-->
+<!--@vars {
+"var quote_time":"Created time of dart",
+"var checkout_cart_url":"Check Out URL",
+"var customer_firstname":"Customer First Name",
+"var customer_lastname":"Customer Last Name",
+"var $store.getFrontendName() |raw":"Store Name",
+"var formattedCart|raw":"All Items in Cart",
+"template config_path=\"design\/email\/footer_template\"":"Email Footer Template",
+"template config_path=\"design\/email\/header_template\"":"Email Header Template"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+<p class="greeting">{{trans "Hello %firstname," firstname=$customer_firstname}}</p>
+<br>
+
+<p>
+    {{trans "Your shopping cart at %store_name is waiting a while for your return!" store_name=$store.getFrontendName()}}
+    <br>
+    {{trans "Would you like to complete your purchase?"}}
+    <br>
+    <table class="cart-details">
+        <tr>
+            <td class="item-details">
+                <h3>{{trans "Shopping Cart Details"}}</h3>
+                <p>{{var formattedCart|raw}}</p>
+            </td>
+        </tr>
+    </table>
+    <br>
+    {{trans "Click this link <a href='%checkout_cart_url'>HERE</a> to complete your purchase!" checkout_cart_url=$checkout_cart_url |raw}}
+</p>
+<br>
+<br>
+{{trans "Thanks for shopping with us,"}}
+<br>
+{{var store.getFrontendName()}}
+
+{{template config_path="design/email/footer_template"}}

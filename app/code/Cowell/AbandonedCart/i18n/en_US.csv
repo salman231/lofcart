@@ -1,0 +1,61 @@
+"You deleted logs successfully.","You deleted logs successfully."
+"The record has been deleted.","The record has been deleted."
+"We can't find a record to delete.","We can't find a record to delete."
+"Email Logs","Email Logs"
+"A total of %1 item(s) were deleted.","A total of %1 item(s) were deleted."
+"Email Preview","Email Preview"
+"An error occurred. The email template can not be opened for preview.","An error occurred. The email template can not be opened for preview."
+"Email send successfully","Email send successfully"
+"There is an error occur when sending email","There is an error occur when sending email"
+"Invalid block type: %1","Invalid block type: %1"
+"We can't save the cron expression.","We can't save the cron expression."
+Sent,Sent
+Error,Error
+"Preview Email","Preview Email"
+Resend,Resend
+Delete,Delete
+"Delete item","Delete item"
+"Are you sure you wan't to delete this record?","Are you sure you wan't to delete this record?"
+Price:,Price:
+SKU,SKU
+Qty,Qty
+"Email Come Back the Cart","Email Come Back the Cart"
+"Hello ,","Hello ,"
+"You added item to the quote at %quote_time","You added item to the quote at %quote_time"
+"Cart Details","Cart Details"
+"Please click <a href=""%checkout_cart_url"">HERE</a> to checkout process ","Please click <a href=""%checkout_cart_url"">HERE</a> to checkout process "
+"Thanks,<br>%store_name","Thanks,<br>%store_name"
+"Email Notify Out Of Stock Item","Email Notify Out Of Stock Item"
+"Please click <a href=""%checkout_cart_url"">HERE</a> to checkout process before this product out of stock ","Please click <a href=""%checkout_cart_url"">HERE</a> to checkout process before this product out of stock "
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+"Cart Alert Email Logs","Cart Alert Email Logs"
+"Cowell Extensions","Cowell Extensions"
+"Cart Alert","Cart Alert"
+"Cart Alert Setting General","Cart Alert Setting General"
+"Cart Total Amount","Cart Total Amount"
+"Cart Total Quantity","Cart Total Quantity"
+"Cart Email Notify Come Back","Cart Email Notify Come Back"
+"Enable Quote Email Notify Come Back","Enable Quote Email Notify Come Back"
+"Time Cart Exist","Time Cart Exist"
+"Conditional of the cart exist to send the email notify come back (hours)","Conditional of the cart exist to send the email notify come back (hours)"
+"Come Back Email Template","Come Back Email Template"
+"Come Back Email Sender","Come Back Email Sender"
+"Cart Email Notify Out Of Stock","Cart Email Notify Out Of Stock"
+"Enable Cart Email Notify Out Of Stock","Enable Cart Email Notify Out Of Stock"
+"Stock Notify","Stock Notify"
+"Send the email when the item in the Cart less than or equal the Stock","Send the email when the item in the Cart less than or equal the Stock"
+"Out Of Stock Email Template","Out Of Stock Email Template"
+"Out Of Stock Email Sender","Out Of Stock Email Sender"
+"Job Schedule","Job Schedule"
+Frequency,Frequency
+"Start Time","Start Time"
+"Time to process","Time to process"
+"Clear All Logs","Clear All Logs"
+"Delete Action","Delete Action"
+ID,ID
+"Email Subject","Email Subject"
+"Recipient Email","Recipient Email"
+Type,Type
+"Sent Date","Sent Date"
+Status,Status

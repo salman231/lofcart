@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="lucent" translate="label" sortOrder="200">
+            <label>Simply Social Login</label>
+        </tab>
+        <section id="sociallogin" translate="label" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Simply Social Login</label>
+            <tab>lucent</tab>
+            <resource>LucentInnovation_SocialLogin::lucent_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>sociallogin/general/enable</config_path>
+                </field>
+                <field id="general_display_popup" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display in popup/floating/page?</label>
+                    <source_model>LucentInnovation\SocialLogin\Model\Config\Display</source_model>
+                    <config_path>sociallogin/general/general_display_popup</config_path>
+                    <depends>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+
+                <field id="general_floating_position" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Floating Position</label>
+                    <source_model>LucentInnovation\SocialLogin\Model\Config\Position</source_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_popup">1</field>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="general_display_type" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Type</label>
+                    <source_model>LucentInnovation\SocialLogin\Model\Config\Type</source_model>
+                    <config_path>sociallogin/general/general_display_type</config_path>
+                    <depends>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="general_logo_size" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Logo Size</label>
+                    <source_model>LucentInnovation\SocialLogin\Model\Config\Size</source_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">1</field>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="general_display_on" translate="label" type="multiselect" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display On Page</label>
+                    <source_model>LucentInnovation\SocialLogin\Model\Config\Page</source_model>
+                    <depends>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="general_display_on_position" translate="label" type="multiselect" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display On Position</label>
+                    <source_model>LucentInnovation\SocialLogin\Model\Config\PagePosition</source_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_popup" separator=",">0,2</field>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="general_redirect_url" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>After login redirect url</label>
+                    <depends>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="facebook" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Facebook Configuration</label>
+                <field id="facebook_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="facebook_app_id" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App Id</label>
+                    <depends>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="facebook_button_text" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Button Text</label>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+               <field id="facebook_font_family" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Font Family</label>
+                    <source_model>LucentInnovation\SocialLogin\Model\Config\FontFamily</source_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+                <field id="facebook_font_size" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Font Size</label>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+                <field id="facebook_button_bg" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Button Background Color</label>
+                    <frontend_model>LucentInnovation\SocialLogin\Block\Color</frontend_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+                <field id="facebook_button_text_color" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Button Text Color</label>
+                    <frontend_model>LucentInnovation\SocialLogin\Block\Color</frontend_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+
+
+            </group>
+            <group id="google" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Configuration</label>
+                <field id="google_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="google_client_id" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Client Id</label>
+                    <depends>
+                        <field id="sociallogin/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="google_button_text" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Button Text</label>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+               <field id="google_font_family" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Font Family</label>
+                    <source_model>LucentInnovation\SocialLogin\Model\Config\FontFamily</source_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+                <field id="google_font_size" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Font Size</label>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+                <field id="google_button_bg" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Button Background Color</label>
+                    <frontend_model>LucentInnovation\SocialLogin\Block\Color</frontend_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+                <field id="google_button_text_color" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Button Text Color</label>
+                    <frontend_model>LucentInnovation\SocialLogin\Block\Color</frontend_model>
+                    <depends>
+                        <field id="sociallogin/general/general_display_type">2</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

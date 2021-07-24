@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <quote_alert_section>
+            <equote>
+                <cart_total>100</cart_total>
+                <cart_stock>1</cart_stock>
+            </equote>
+            <quote_email_notify_come_back>
+                <e_quote_come_back>1</e_quote_come_back>
+                <time_come_back>25</time_come_back>
+                <email_come_back_template>quote_alert_section_quote_email_notify_come_back_email_come_back_template</email_come_back_template>
+                <email_identity>general</email_identity>
+            </quote_email_notify_come_back>
+            <quote_email_out_stock>
+                <e_quote_out_stock>1</e_quote_out_stock>
+                <stock_notify>3</stock_notify>
+                <email_stock_template>quote_alert_section_quote_email_out_stock_email_stock_template</email_stock_template>
+                <email_identity>general</email_identity>
+            </quote_email_out_stock>
+        </quote_alert_section>
+    </default>
+</config>

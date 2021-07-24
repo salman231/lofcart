@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Cowell_AbandonedCart::email_logs" title="Abandoned Cart Email Logs" translate="title" module="Cowell_AbandonedCart"
+             sortOrder="60"
+             parent="Magento_Backend::marketing_communications" action="emaillogs/logs/index"
+             resource="Cowell_AbandonedCart::email_logs"/>
+    </menu>
+</config>

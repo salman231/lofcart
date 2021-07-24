@@ -1,0 +1,48 @@
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<!--@subject {{trans "Product Low Stock Notification Email"}} @-->
+<!--@vars {
+"var quote_time":"Cart create",
+"var checkout_cart_url":"Check Out URL",
+"var customer_firstname":"Customer First Name",
+"var customer_lastname":"Customer Last Name",
+"var $store.getFrontendName() |raw":"Store Name",
+"var formattedCart|raw":"Low stock items in cart",
+"template config_path=\"design\/email\/footer_template\"":"Email Footer Template",
+"template config_path=\"design\/email\/header_template\"":"Email Header Template"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "Hello %firstname," firstname=$customer_firstname}}</p>
+<br>
+
+<p>
+    {{trans "Seems like you left these following items to your cart at %quote_time on our store." quote_time=$quote_time}}
+    <br>
+    {{trans "Please come back to have a look before they are sold out."}}
+    <br>
+    <table class="cart-details">
+        <tr>
+            <td class="item-details">
+                <h3>{{trans "Shopping Cart Details"}}</h3>
+                <p>{{var formattedCart|raw}}</p>
+            </td>
+        </tr>
+    </table>
+    <br>
+    {{trans 'Please click <a href="%checkout_cart_url">HERE</a>  to get them now!' checkout_cart_url=$checkout_cart_url |raw}}
+</p>
+<br>
+<br>
+{{trans "Thanks for shopping with us,"}}
+<br>
+{{var store.getFrontendName()}}
+
+{{template config_path="design/email/footer_template"}}

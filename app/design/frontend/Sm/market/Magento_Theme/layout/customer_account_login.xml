@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_form_login">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Customer::form/login.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="customer.new" remove="true" ></referenceBlock>
+        <move element="customer.login.container" destination="customize.login-register.container" after="customize.login.container"/>
+        
+        <referenceContainer name="content">
+            <container name="customize.login-register.container" as="constomizeLoginRegisterContainer" label="Customize Login Register Container" htmlTag="div" htmlClass="customer-login-main-content">
+                <container name="customize.login.container" as="constomizeLoginContainer" label="Customize Login Container" htmlTag="div" htmlClass="customer_tabs" before="customer.register.container">
+                    <block class="Magento\Framework\View\Element\Template" template="Magento_Customer::form/tab.phtml" name="block_name" />
+                </container>
+
+                <container name="customer.register.container" label="Customer Register Container" htmlTag="div" htmlClass="register-container">
+                    <block class="Magento\Customer\Block\Form\Register" name="customer_form_register" template="form/register.phtml">
+                        <container name="form.additional.info" as="form_additional_info"/>
+                        <container name="customer.form.register.fields.before" as="form_fields_before" label="Form Fields Before" htmlTag="div" htmlClass="customer-form-before"/>
+                    </block>
+                    <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
+                        <arguments>
+                            <argument name="triggers" xsi:type="array">
+                                <item name="loginButton" xsi:type="string">.action.login</item>
+                            </argument>
+                            <argument name="triggers" xsi:type="array">
+                                <item name="registerSubmitButton" xsi:type="string">.action.submit</item>
+                            </argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

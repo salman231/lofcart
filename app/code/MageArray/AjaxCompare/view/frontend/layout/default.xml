@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <head>
+		<css src="MageArray_AjaxCompare::css/custom.css"/>
+    </head>
+	<referenceContainer name="content">
+			<block class="Magento\Catalog\Block\Product\Compare\ListCompare" name="compare.link.list" template="MageArray_AjaxCompare::category/compare.phtml" ifconfig="ajaxcompare/setting/enable"/>
+	</referenceContainer>
+	<referenceBlock name="head.components">
+            <block class='MageArray\AjaxCompare\Block\Compare' name='magearray.ajaxcompare'
+                   ifconfig='ajaxcompare/setting/enable'>
+                <action method="manageHeaderContent"/> 
+            </block>
+    </referenceBlock>
+</page>

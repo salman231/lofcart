@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="empty" />
+    <body>
+        <referenceContainer name="root">
+            <block name="preview.page.content" class="Magento\Framework\View\Element\Template" template="Magento_Email::template/preview.phtml">
+                <block class="Cowell\AbandonedCart\Block\Adminhtml\Maillogs\Preview" name="content" as="content"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

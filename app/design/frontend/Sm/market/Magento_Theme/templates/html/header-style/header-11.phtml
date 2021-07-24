@@ -1,0 +1,257 @@
+<div class="header-container header-style-11">
+
+    <div class="header-top">
+
+        <div class="container">
+
+            <div class="row row-topheader">
+
+                <div class="col-lg-4 col-md-4 col-sm-4 language-currency-header">
+                    <?php
+                    $objectManager =  \Magento\Framework\App\ObjectManager::getInstance();        
+                    $storeManager  = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+                    $storeName     = $storeManager->getStore()->getName();
+                    $storeCode     = $storeManager->getStore()->getCode();
+                    ?>
+                    <a href="javascript:void(0)" onclick="popupLocationChange()" class="delivertocountry"> <i class="fa fa-map-marker" aria-hidden="true" class="locationmapicon"></i><span> Deliver to <?php echo $storeName; ?></span></a>
+
+                    <?php // echo $block->getChildHtml('language-header'); ?>
+                    <?php echo $block->getChildHtml('currency-header'); ?>
+                    <div id="ship-popup" style="width:360px;display:none;">
+                        <div class="addbutton"></div>
+                        <div class="promotional-popup">
+                            <div class="pop-subscribe">
+                                <h5>We ship internationally</h5>
+                                <p>We're showing you items that ship to <?php echo $storeName ?>. To see items that ship to a different country, change your delivery address.</p>
+                                <div class="changeaddressallbtn">
+                                    <a href="javascript:void(0)" onclick="popupLocationChangeClose()" class="dontchange">Don't Change</a>
+                                    <a href="javascript:void(0)" onclick="popupLocationChange()" class="changeadd">Change Address</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-8 col-md-8 col-sm-8 header-top-links">
+
+                    <?php echo $block->getChildHtml('toplinks-header'); ?>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="header-middle">
+
+        <div class="container">
+
+            <div class="middle-content">
+
+                <div class="row">
+
+                    <div class="col-lg-3 logo-header">
+
+                        <?php echo $block->getChildHtml('logo_theme'); ?>
+
+                    </div>
+
+
+
+                    <div class="col-lg-9 header-middle-right">
+
+                        <div class="minicart-header">
+
+                            <div class="minicart-content">
+
+                                <?php echo $block->getChildHtml('cart-header'); ?>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('phone-header-v5')->toHtml(); ?>
+
+
+
+                        <div class="search-header">
+
+                            <?php echo $block->getChildHtml('search-header-pro'); ?>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="header-bottom">
+
+        <div class="container">
+
+            <div class="bottom-content">
+
+                <div class="row">
+
+                    <div class="col-xl-2 col-md-3 sidebar-megamenu">
+
+                        <div class="megamenu-content-sidebar">
+
+                            <div class="btn-megamenu">
+
+                                <a href="javascript:void(0)"
+
+                                   title="<?php echo __('Categories') ?>"><?php echo __('Categories') ?></a>
+
+                            </div>
+
+
+
+                            <div class="menu-ver-content">
+
+                                <?php
+
+                                if ($_config->getGeneral('menu_style') == 'megamenu') {
+
+                                    echo $block->getChildHtml('navigation-header-megamenu');
+
+                                } else {
+
+                                    echo $block->getChildHtml('navigation-header');
+
+                                }
+
+                                ?>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="navigation-mobile-container">
+
+                            <?php echo $block->getChildHtml('navigation.mobile'); ?>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-xl-7 col-md-9 main-megamenu">
+
+                        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('megamenu-horizontal')->toHtml(); ?>
+
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-3 link-right">
+
+                        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('link-right-header')->toHtml(); ?>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+<div class="display-popup" style="display:none; width:400px;">
+    <div id="location-popup" style="width:360px;">
+        <div class="msgtodel"> Delivery options and delivery speeds may vary for different locations.</div>
+        <div class="promotional-popup">
+            <div class="pop-subscribe">
+                <?php echo $block->getChildHtml('language-header'); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- -----------------------------------This block is moved in inside top menu items ----------------------------------
+
+<div id="ship-popup" style="width:360px;display:none;">
+    <div class="addbutton"></div>
+    <div class="promotional-popup">
+        <div class="pop-subscribe">
+            <h5>We ship internationally</h5>
+            <p>We're showing you items that ship to <?php //echo $storeName ?>. To see items that ship to a different country, change your delivery address.</p>
+            <a href="javascript:void(0)" onclick="popupLocationChangeClose()" class="dontchange">Don't Change</a>
+            <a href="javascript:void(0)" onclick="popupLocationChange()" class="changeadd">Change Address</a>
+        </div>
+    </div>
+</div> -->
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/cookies',
+        'jqueryfancyboxpack'
+    ], function ($) {
+        $.cookie('storeCode', '<?php echo $storeCode; ?>');
+        console.log('============');
+        console.log(jQuery.cookie('storeCode'));
+        console.log('============');
+        var check_ship_cookie = jQuery.cookie('ship_popup');
+        if (check_ship_cookie == null) {
+            popupshipDisplay();
+        }
+        // $('#newsletter-popup .subscribe-bottom').on('click', function () {
+        //     if (jQuery(this).parent().parent().find('input:checked').length) {
+        //         var check_cookie = $.cookie('newsletter_popup');
+        //         if (check_cookie == null || check_cookie == 'shown') {
+        //             $.cookie('newsletter_popup', 'dontshowitagain');
+        //         } else {
+        //             $.cookie('newsletter_popup', 'shown');
+        //             popupNewsletter();
+        //         }
+        //     } else {
+        //         $.cookie('newsletter_popup', 'shown');
+        //     }
+        // });
+    });
+
+    function popupLocationChange() {
+        jQuery(document).ready(function ($) {
+            $.fancybox.open('#location-popup');	
+            $('#ship-popup').hide();
+        });
+    };
+    
+    function popupshipDisplay() {
+        jQuery(document).ready(function ($) {
+            $.cookie('ship_popup', 'dontshowitagain');
+            $('#ship-popup').show();
+        });
+    };
+
+    function popupLocationChangeClose(){
+        jQuery(document).ready(function ($) {
+            $('#ship-popup').hide();
+        });
+    }
+</script>

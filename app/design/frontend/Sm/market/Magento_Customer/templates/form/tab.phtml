@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Tab $block */
+?>
+<ul>
+    <li class="existing-tab tab active">Registered Customers</li>
+    <li class="new-tab tab">New Customer</li>
+</ul>
+
+<script>
+    require(['jquery'], function () {     
+        jQuery(document).ready(function(){
+            jQuery('.existing-tab').click(function () {
+                 jQuery('.login-container').show();
+                 jQuery('.register-container').hide();
+                 
+                 jQuery('.existing-tab').addClass('active');
+                 jQuery('.new-tab').removeClass('active');
+            });
+            jQuery('.new-tab').click(function () {
+                 jQuery('.login-container').hide();
+                 jQuery('.register-container').show();
+                 
+                 jQuery('.existing-tab').removeClass('active');
+                 jQuery('.new-tab').addClass('active');
+            });
+        });
+    });
+</script>

@@ -1,0 +1,144 @@
+<div class="header-container header-style-12">
+
+    <div class="header-top">
+
+        <div class="container">
+
+            <div class="row row-topheader">
+
+                <div class="col-lg-8 col-md-8 col-sm-8 topheader_left">
+                    <ul class="top-hed-wrap">
+                        <li>Free Shipping</li>
+                        <li>30 Days Return Policy</li>
+                        <li>Earn Reward Point</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 text-right topheader_right">
+                    <ul class="top-hed-wrap">
+                        <li class="phne"><a href="tel:+1-780-982-3547">(+1) 780-982-3547</a></li>
+                        <li class="snin"><?php echo $block->getChildHtml('toplinks-header'); ?></li> 
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="header-middle">
+
+        <div class="container">
+
+            <div class="middle-content">
+
+                <div class="row">
+
+                    <div class="col-lg-3 logo-header">
+
+                        <?php echo $block->getChildHtml('logo_theme'); ?>
+
+                    </div>
+
+
+
+                    <div class="col-lg-9 header-middle-right">
+
+                        <?php /* <div class="minicart-header">
+
+                            <div class="minicart-content">
+
+                                <?php echo $block->getChildHtml('cart-header'); ?>
+
+                            </div>
+
+                        </div>*/ ?>
+
+                        <div class="currency-wrap"><?php echo $block->getChildHtml('currency-header'); ?></div>
+
+
+
+                        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('phone-header-v5')->toHtml(); ?>
+
+
+
+                        <div class="search-header">
+
+                            <?php echo $block->getChildHtml('search-header'); ?>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="header-bottom">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-9 main-megamenu">
+
+                    <div class="menu-full">
+
+                        <?php
+
+                        if ($_config->getGeneral('menu_style') == 'megamenu') {
+
+                            echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('megamenu-horizontal')->toHtml();
+
+                        } else {
+
+                            echo $block->getChildHtml('navigation-header');
+
+                        }
+
+                        ?>
+
+                    </div>
+
+
+
+                    <div class="navigation-mobile-container">
+
+                        <?php echo $block->getChildHtml('navigation.mobile'); ?>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="col-lg-3 link-right">
+
+                    <ul>
+                    <li><a title="My Account" href="<?php echo $this->getUrl('customer/account');?>"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                    <li><a title="My Wishlist" href="<?php echo $this->getUrl('wishlist');?>"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                    <li><a title="My Cart" href="<?php echo $this->getUrl('checkout/cart');?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+

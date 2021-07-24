@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="cc_custom_widget" class="Annexcloud\SocialLogin\Block\Widget\LoginWidget" placeholder_image="Annexcloud_SocialLogin::images/widget.png">
+        <label translate="true">Annexcloud - Social Login</label>
+        <description>Annexcloud - Social Login</description>       
+    </widget>
+</widgets>

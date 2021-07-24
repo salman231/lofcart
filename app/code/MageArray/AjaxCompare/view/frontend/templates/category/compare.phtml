@@ -1,0 +1,31 @@
+<?php
+
+$helper=$this->helper(\MageArray\AjaxCompare\Helper\Product\Compare::Class);
+?>
+<?php if ($helper->showBox()) :?>
+<div class="get_compare_list_bar">
+</div>
+<?php endif;?>
+<script type="text/x-magento-init">
+            {
+                "*": {
+                "ajaxCompare": {"url":"<?= /* @noEscape */ $block->getCompareboxUrl();?>","showbox":<?= /* @noEscape */ $helper->showBox();?>}
+                }
+            }
+</script>
+<script>
+    require([    
+        "jquery","MageArray_AjaxCompare/js/ajaxCompare"
+        ], function ($,addCompare) {
+            "use strict";
+           
+        $(document).ready(function() {
+            $("body").on("click", ".action.delete", function (e) {
+                e.stopImmediatePropagation();
+                addCompare().addDelete($(this));
+            });
+        });
+        
+    });
+                        
+</script>

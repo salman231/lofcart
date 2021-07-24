@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+
+}
+
+section{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 120px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+header .logo{
+  position: inherit;
+  max-width: 150px;
+  border-radius: 30%;
+
+}
+
+
+header ul{
+  position: relative;
+  display: flex;
+}
+
+header ul li{
+  list-style: none;
+}
+header ul li a {
+  color: #000;
+  font-size: 23px;
+  text-decoration: none;
+  font-weight: 610;
+  letter-spacing: 3px;
+  padding: 2px 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+  transition-property: background;
+}
+header ul li a:not(:last-child){
+  margin-right: 30px;
+}
+
+header ul li a:hover{
+   background: #D4D3DD;
+}
+
+.content{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content .textBox{
+  position: relative;
+  max-width: 500px;
+}
+.content .textBox h2{
+  color: #226A80;
+  font-size: 55px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 60px;
+  margin-bottom: 30px;
+}
+.content .textBox h2 span{
+  color: #226A80;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.content .textBox p{
+  color: #333;
+  font-size: 22px;
+  font-weight: 500;
+}
+.content .textBox a{
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 20px;
+  background: #11998e;
+  color: #fff;
+  border-radius: 40px;
+  font-weight:500;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.content .imgBox{
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 100px;
+  margin-top: 50px;
+}
+.content .imgBox .img{
+max-width:  2040px;
+width: 100px;
+height: 200px;
+}
+
+.wrap {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 310px;
+}
+
+a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+.container .card3{
+  position: relative;
+  width: 250px;
+  height: 480px;
+  margin: 7px;
+  background-image: url(timer.jpg);
+  background-size: cover;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .card3 .info{
+  position: absolute;
+  bottom:  -200px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  z-index: 10;
+  flex-direction: column;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 -10px 10px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: bottom 0.5s;
+}
+
+.container .card3:hover .info{
+  bottom: 0px;
+}
+
+.container .card3 .info .infoBox h3{
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0 15px;
+  line-height: 1.5em;
+  transition: 0.5s;
+  opacity:0;
+  transform: translateY(-20px);
+}
+.container .card3 .info .infoBox h3{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.container .card3 .info .infoBox h3 span{
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: initial;
+}
+.timer {
+  letter-spacing: 2px;
+  margin: 15px 30px;
+  width: 100px;
+  background: rgba(0,0,0,0.4);
+  text-align: justify;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  cursor: pointer
+}
+.timer p{
+  color: #FFF;
+  font-size: 45px;
+  margin: 25px 8px;
+}
+.timer h6{
+  margin:0;
+  padding: 10px ;
+  font-size: 1em;
+  background: #ffffff;
+  color: #000;
+  text-transform: uppercase;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 5px 15px #000;
+}
+/*.glass-container{
+    width: 1050px;
+    height: 575px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 43px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255,255,255, 0.146);
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+    border: 1px rgba(255,255,255,0.4) solid;
+    border-bottom: 1px rgba(40,40,40,0.35) solid;
+    border-right: 2px rgba(40,40,40,0.35) solid;
+}*/
+/*For glassmorphism*/
+/*.dark-glass{
+  background-color: rgba(255,255,255, 0.146);
+  backdrop-filter: blur(10px);
+  border: 1px rgba(255,255,255,0.4) solid;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+}
+.card{
+  border-radius: 1rem;
+  height: 450px;
+  width: 400px;
+  overflow: hidden;
+}
+
+.card-body{
+  margin: 1rem;
+  color: #226A80;
+}
+
+.card-heading .h1{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}*/
+
+.container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.container .card{
+  position: relative;
+  width: 250px;
+  height: 480px;
+  margin: 7px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .card .info{
+  position: absolute;
+  bottom:  -200px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  z-index: 10;
+  flex-direction: column;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 -10px 10px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: bottom 0.5s;
+}
+
+.container .card:hover .info{
+  bottom: 0px;
+}
+
+.container .card .info .infoBox h3{
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0 15px;
+  line-height: 1.2em;
+  transition: 0.5s;
+  opacity:0;
+  transform: translateY(-20px);
+}
+.container .card .info .infoBox h3{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.container .card .info .infoBox h3 span{
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: initial;
+}
+
+
+.container .card4{
+  position: relative;
+  width: 250px;
+  height: 480px;
+  margin: 7px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .card4 .imgBox{
+background-position: center;
+background-size: cover;
+}
+.container .card4 .info{
+  position: absolute;
+  bottom:  -200px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  z-index: 10;
+  flex-direction: column;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 -10px 10px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: bottom 0.5s;
+}
+
+.container .card4:hover .info{
+  bottom: 0px;
+}
+
+.container .card4 .info .infoBox h3{
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0 15px;
+  line-height: 1.2em;
+  transition: 0.5s;
+  opacity:0;
+  transform: translateY(-20px);
+}
+.container .card4 .info .infoBox h3{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.container .card4 .info .infoBox h3 span{
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: initial;
+}
+
+.thumb{
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.thumb li{
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.thumb li:hover{
+  transform: translateY(-15px);
+}
+
+.thumb li img{
+  max-width: 50px;
+}
+
+.evo{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #FFEFBA, #FFFFFF);
+  clip-path: circle(1400px at right 1000px);
+}
+
+
+/*header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 80px;
+
+}
+
+header .menu{
+  float: right;
+  margin-top: 5px;
+}
+header ul li{
+  display: inline-block;
+  color: #fff;
+}
+
+header ul li a{
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  margin: 0 25px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.circle {
+width: 15rem;
+height: 15rem;
+background: linear-gradient(to right, #ece9e6, #ffffff);
+position: absolute;
+border-radius: 50%;
+z-index: 1;
+min-height: 20vh;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+}*?

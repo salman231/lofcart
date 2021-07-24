@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sociallogin>
+            <general>
+                <enable>0</enable>
+                <general_display_popup>2</general_display_popup>
+                <general_floating_position></general_floating_position>
+                <general_display_type>1</general_display_type>
+                <general_logo_size>48</general_logo_size>
+                <general_display_on>login</general_display_on>
+                <general_display_on_position></general_display_on_position>
+                <general_redirect_url></general_redirect_url>
+            </general>
+            <facebook>
+                <facebook_enable>0</facebook_enable>
+                <facebook_app_id></facebook_app_id>
+                <facebook_font_family></facebook_font_family>
+                <facebook_font_size>18px</facebook_font_size>
+                <facebook_button_bg>#003fab</facebook_button_bg>
+                <facebook_button_text>Facebook Login</facebook_button_text>
+                <facebook_button_text_color>#ffffff</facebook_button_text_color>
+             </facebook>
+            <google>
+                <google_enable>0</google_enable>
+                <google_client_id></google_client_id>
+                <google_font_family></google_font_family>
+                <google_font_size>18px</google_font_size>
+                <google_button_bg>#e03c00</google_button_bg>
+                <google_button_text>Google Login</google_button_text>
+                <google_button_text_color>#ffffff</google_button_text_color>
+            </google>
+        </sociallogin>
+    </default>
+</config>

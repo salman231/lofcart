@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © CO-WELL Co., LTD. All rights reserved.
+ * Copyright © CO-WELL ASIA Co., LTD. All rights reserved.
+ * 
+ * Licensed under the Open Software License version 3.0
+ * See LICENSE.txt and COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="email_logs_listing_data_source" xsi:type="string">Cowell\AbandonedCart\Model\ResourceModel\MailLog\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Cowell\AbandonedCart\Model\ResourceModel\MailLog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">quote_alert_email_logs</argument>
+            <argument name="resourceModel" xsi:type="string">Cowell\AbandonedCart\Model\ResourceModel\MailLog</argument>
+        </arguments>
+    </virtualType>
+    <type name="Cowell\AbandonedCart\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Cowell\AbandonedCart\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">CWALogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Cowell\AbandonedCart\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,183 @@
+.comparisonBar {
+    bottom: 0;
+    position: fixed;
+    width: 95rem;
+    z-index: 99999;
+    max-width: 100%;
+}
+.comparisonBar .compare_header {
+    /* background-color: #414348;
+    cursor: pointer;
+    padding: 11px 20px;
+    float: left;
+    width: 100%;
+    border: 1px solid #414348;
+    border-bottom: 0; */
+	background-color: #ff5501;
+    cursor: pointer;
+    padding: 11px 20px;
+    float: none;
+    width: auto;
+    border: 1px solid #ff5501;
+    border-bottom: 0;
+    overflow: hidden;
+}
+.comparisonBar .compare_header .h2 {
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    display: block;
+    width: 100%;
+}
+.comparisonBar .compare_header .fa {
+    margin: 3px 0 0 0;
+    float: right;
+    color: #fff;
+}
+.comparisonBar .compare_header span.numberOfItems {
+    background: #fff;
+    border-radius: 100%;
+    color: #000;
+    line-height: 20px;
+    margin-right: 1rem;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    float: left;
+}
+.comparisonBar .inner {
+    /* background: #f1f1f2;
+    padding: 15px 15px 10px 5px;
+    border: 1px solid #d6d6d8;
+    border-bottom: 0;
+    float: left;
+    position: relative;
+    width: 100%; */
+	background: #f1f1f2;
+    padding: 15px 15px 10px 5px;
+    border: 1px solid #ff5501;
+    border-bottom: 0;
+    float: none;
+    position: relative;
+    width: auto;
+}
+.comparisonBar .inner .comparison_selectedproducts {
+    display: inline-block;
+    /* max-height: 144px; */
+    width: 84%;
+}
+.comparisonBar .inner .comparison_selectedproducts table {
+    table-layout: fixed;
+}
+.comparisonBar .inner .comparison_selectedproducts table tr td {
+    padding: 0 15px;
+}
+.comparisonBar .inner .comparison_selectedproducts .comparisonProductBox {
+    background: #fff;
+    cursor: pointer;
+    float: left;
+    max-height: 140px;
+    margin-right: 1rem;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    padding: 2rem 1rem;
+    width: 100%;
+    border: 1px solid #d6d6d8;
+}
+.comparisonBar .inner .comparison_selectedproducts .comparisonProductBox:hover {
+    border-color: #fdb794;
+}
+.comparisonBar .inner .comparison_selectedproducts .comparisonProductBox img {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.comparisonBar .inner .comparison_selectedproducts .comparisonProductBox .product_name {
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 1rem;
+    overflow: hidden;
+    text-align: center;
+}
+.comparisonBar .inner .info {
+    display: inline-block;
+    width: 16%;
+    float: right;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -20px;
+}
+.comparisonBar .inner .info a {
+    float: right;
+    font-weight: 500;
+}
+.comparisonBar .inner .delete {
+    float: right;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+.comparisonBar .inner .delete span {
+    font-size: 0;
+}
+.comparisonBar .inner .delete span:before {
+    color: #ff6901;
+    content: "\f057";
+    font: normal normal normal 18px/1 FontAwesome;
+}
+.comparisonBar .inner .delete:hover span:before {
+    color: #000;
+}
+.comparisonBar.open .fa.fa-long-arrow-up {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.page-layout-1column .comparisonBar{
+	left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .comparisonBar {
+        width: 100%;
+        left: 0;
+    }
+    .comparisonBar .inner .comparison_selectedproducts {
+        width: 100%;
+		max-height: 100%;
+    }
+    .comparisonBar .inner .info {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .comparisonBar .inner .info a {
+        float: none;
+        font-weight: 500;
+    }
+    .comparisonBar .inner .product_name {
+        min-height: 40px;
+    }
+	.comparisonBar .inner{
+		float: left;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .comparisonBar {
+        width: 100%;
+        left: 0;
+    }
+    .comparisonBar .inner .comparison_selectedproducts {
+        width: 80%;
+    }
+}
