@@ -1,0 +1,16 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+$cust = $objectManager->create('\Magento\Customer\Api\CustomerRepositoryInterface');
+if ($customerSession->isLoggedIn()) {
+$customerSession->getCustomerId();  // get Customer Id
+    $customer = $cust->getById($customerSession->getCustomerId());
+
+    $customerSession->getCustomerGroupId();
+$customerSession->getCustomer();
+$customerSession->getCustomerData();
+
+echo "Hello! " . $customer->getFirstName();  // get  Full Name
+ // get Email
+}
+?>
